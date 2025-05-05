@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/dbc_32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/dbc_16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Permanent Marker:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"mcmohen.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="对拍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++对拍">
+<meta property="og:url" content="https://mcmohen.top/post/5a25a963.html">
+<meta property="og:site_name" content="Mohen&#39;s Blog">
+<meta property="og:description" content="对拍">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/mcmohen/ImageHosting/mcmohen_img%E5%AF%B9%E6%8B%8D.PNG">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/mcmohen/ImageHosting/mcmohen_img%E5%AF%B9%E6%8B%8D2.PNG">
+<meta property="article:published_time" content="2019-10-03T11:55:37.000Z">
+<meta property="article:modified_time" content="2025-05-05T09:20:22.612Z">
+<meta property="article:author" content="mcmohen">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="陈年旧物">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/mcmohen/ImageHosting/mcmohen_img%E5%AF%B9%E6%8B%8D.PNG">
+
+<link rel="canonical" href="https://mcmohen.top/post/5a25a963.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>C++对拍 | Mohen's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Mohen's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">旧的不去新的不来</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">8</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">7</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mcmohen.top/post/5a25a963.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/dbc_avatar.jpg">
+      <meta itemprop="name" content="mcmohen">
+      <meta itemprop="description" content="终究会释怀~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mohen's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C++对拍
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-03 19:55:37" itemprop="dateCreated datePublished" datetime="2019-10-03T19:55:37+08:00">2019-10-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-05 17:20:22" itemprop="dateModified" datetime="2025-05-05T17:20:22+08:00">2025-05-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<h4 id="对拍"><a href="#对拍" class="headerlink" title="对拍"></a>对拍</h4></blockquote>
+<span id="more"></span>
+
+<ol>
+<li><h3 id="关于对拍"><a href="#关于对拍" class="headerlink" title="关于对拍:"></a>关于对拍:</h3></li>
+</ol>
+<blockquote>
+<h4 id="对拍是一个检验你的暴力程序是否正确的东西，在考场上十分有用！-而且很好打"><a href="#对拍是一个检验你的暴力程序是否正确的东西，在考场上十分有用！-而且很好打" class="headerlink" title="对拍是一个检验你的暴力程序是否正确的东西，在考场上十分有用！(而且很好打)"></a>对拍是一个检验你的暴力程序是否正确的东西，在考场上十分有用！<del>(而且很好打)</del></h4><h4 id="它可以让你认为的标准正确程序和你的暴力程序一起读入一些值并输出这些值，再比较异同"><a href="#它可以让你认为的标准正确程序和你的暴力程序一起读入一些值并输出这些值，再比较异同" class="headerlink" title="它可以让你认为的标准正确程序和你的暴力程序一起读入一些值并输出这些值，再比较异同"></a>它可以让你认为的标准正确程序和你的暴力程序一起读入一些值并输出这些值，再比较异同</h4></blockquote>
+<ol start="2">
+<li><h3 id="对拍程序"><a href="#对拍程序" class="headerlink" title="对拍程序"></a>对拍程序</h3><h5 id="直接上代码"><a href="#直接上代码" class="headerlink" title="直接上代码:"></a>直接上代码:</h5><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">:loop   <span class="comment">//循环</span></span><br><span class="line">gen.exe&gt;<span class="keyword">in</span><span class="selector-class">.txt</span>    <span class="comment">//gen为生成随机数的程序，生成随机数输入进in.txt</span></span><br><span class="line">check.exe&lt;<span class="keyword">in</span>.txt&gt;out1<span class="selector-class">.txt</span>   <span class="comment">//check为你的暴力程序 从in读入输出进out</span></span><br><span class="line">mine.exe&lt;<span class="keyword">in</span>.txt&gt;out2<span class="selector-class">.txt</span>    <span class="comment">//mine是你认为的正确程序</span></span><br><span class="line">fc out1<span class="selector-class">.txt</span> out2<span class="selector-class">.txt</span>      <span class="comment">//比较两个程序输出的异同</span></span><br><span class="line"><span class="keyword">if</span> not errorlevel <span class="number">1</span> goto loop    <span class="comment">//如果找不出异同(也就是两个程序输出一样)就继续下次循环</span></span><br><span class="line"><span class="attribute">pause</span>     //如果不同就暂停</span><br></pre></td></tr></table></figure>
+
+<h5 id="只需把上述代码复制进新建文本文档中-将”-“的注释删去-，再将后缀改为-bat即可！"><a href="#只需把上述代码复制进新建文本文档中-将”-“的注释删去-，再将后缀改为-bat即可！" class="headerlink" title="只需把上述代码复制进新建文本文档中**(将”&#x2F;&#x2F;“的注释删去)**，再将后缀改为.bat即可！"></a>只需把上述代码复制进新建文本文档中**(将”&#x2F;&#x2F;“的注释删去)**，再将后缀改为.bat即可！</h5></li>
+<li><h3 id="使用对拍"><a href="#使用对拍" class="headerlink" title="使用对拍"></a>使用对拍</h3></li>
+</ol>
+<h5 id="首先你得先有一道题"><a href="#首先你得先有一道题" class="headerlink" title="首先你得先有一道题"></a><del>首先你得先有一道题</del></h5><h5 id="比如这道："><a href="#比如这道：" class="headerlink" title="比如这道："></a>比如这道：</h5><p>【题目描述】</p>
+<p>给定一个长度为 n 的序列 a[n]，和 q 个修改每个修改给定 l, r, k，代表将 a[l],a[l+1], …,a[r] 全部加上 k。最后输出整个序列。 </p>
+<p>【输入格式】 </p>
+<p>第 1 行一个整数 n </p>
+<p>第 2 行 n 个数表示初始序列 a </p>
+<p>第 3 行一个整数 q 表示询问个数 </p>
+<p>第 4 行到第 q + 3 行每行三个整数 l, r, k 描述一个修改。 </p>
+<p>【输出格式】 </p>
+<p>一行 n 个整数表示最终的序列。</p>
+<p>【样例输入】	</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">4</span> -<span class="number">3</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">5</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>【样例输出】</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">4 </span><span class="number">2</span> <span class="number">3</span> <span class="number">3</span> <span class="number">7</span></span><br></pre></td></tr></table></figure>
+
+<p>【数据范围】</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对于 <span class="number">30%</span>的数据：n≤<span class="number">5000</span>, <span class="selector-tag">q</span>≤<span class="number">5000</span></span><br><span class="line">对于 <span class="number">60%</span>的数据：n≤<span class="number">100000</span>,<span class="selector-tag">q</span>≤<span class="number">100000</span></span><br><span class="line">对于 <span class="number">100%</span>的数据：n≤<span class="number">3000000</span>, <span class="selector-tag">q</span>≤<span class="number">3000000</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="先做一个生成随机数的程序-gen-cpp"><a href="#先做一个生成随机数的程序-gen-cpp" class="headerlink" title="先做一个生成随机数的程序(gen.cpp)"></a>先做一个生成随机数的程序(gen.cpp)</h5><blockquote>
+<h5 id="让你的程序自动生成符合条件的样例"><a href="#让你的程序自动生成符合条件的样例" class="headerlink" title="让你的程序自动生成符合条件的样例"></a>让你的程序自动生成符合条件的样例</h5></blockquote>
+<h5 id="如下："><a href="#如下：" class="headerlink" title="如下："></a>如下：</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> a[<span class="number">30001</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">srand</span>(<span class="built_in">time</span>(<span class="number">0</span>));   <span class="comment">//一定要有这一行 定义随机种子</span></span><br><span class="line">	<span class="type">int</span> l,n,temp,tt;</span><br><span class="line">	l=<span class="built_in">rand</span>()%<span class="number">30000</span><span class="number">+1</span>;  <span class="comment">//随机生成1-30001的值</span></span><br><span class="line">	cout&lt;&lt;l&lt;&lt;endl;    <span class="comment">//按题目输出</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=l;++i)&#123;</span><br><span class="line">		a[i]=<span class="built_in">rand</span>()%<span class="number">30000</span><span class="number">+1</span>;   <span class="comment">//随机生成1-30001的值</span></span><br><span class="line">		cout&lt;&lt;a[i]&lt;&lt;<span class="string">&#x27; &#x27;</span>;   <span class="comment">//输出</span></span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;endl;</span><br><span class="line">	n=<span class="built_in">rand</span>()%<span class="number">30000</span><span class="number">+1</span>;  <span class="comment">//随机生成1-30001的值</span></span><br><span class="line">	cout&lt;&lt;n&lt;&lt;endl;    <span class="comment">//输出</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">		temp=<span class="built_in">rand</span>()%l<span class="number">+1</span>;</span><br><span class="line">		tt=<span class="built_in">rand</span>()%l<span class="number">+1</span>;</span><br><span class="line">		<span class="keyword">if</span>(temp&gt;tt)    <span class="comment">//按题目要求从l到r</span></span><br><span class="line">			<span class="built_in">swap</span>(temp,tt);  <span class="comment">//所以temp必须小于tt</span></span><br><span class="line">		cout&lt;&lt;temp&lt;&lt;<span class="string">&#x27; &#x27;</span>;  <span class="comment">//输出</span></span><br><span class="line">		cout&lt;&lt;tt&lt;&lt;<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">		cout&lt;&lt;<span class="built_in">rand</span>()%<span class="number">30000</span>&lt;&lt;<span class="string">&#x27; &#x27;</span>; </span><br><span class="line">		cout&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="急急忙忙打的，有点乱。。。"><a href="#急急忙忙打的，有点乱。。。" class="headerlink" title="急急忙忙打的，有点乱。。。"></a>急急忙忙打的，有点乱。。。</h5><h5 id="然后再做一个暴力-check-cpp-和一个你认为的正确算法-mine-cpp"><a href="#然后再做一个暴力-check-cpp-和一个你认为的正确算法-mine-cpp" class="headerlink" title="然后再做一个暴力(check.cpp)和一个你认为的正确算法(mine.cpp)"></a>然后再做一个暴力(check.cpp)和一个你认为的正确算法(mine.cpp)</h5><h5 id="如下：-1"><a href="#如下：-1" class="headerlink" title="如下："></a>如下：</h5><h4 id="暴力算法："><a href="#暴力算法：" class="headerlink" title="暴力算法："></a>暴力算法：</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> IO &#123;    <span class="comment">//这一段是快读快写(这题数据比较大)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">char</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> <span class="type">int</span> IN_LEN = <span class="number">1000000</span>;</span><br><span class="line">    <span class="type">static</span> <span class="type">char</span> buf[IN_LEN], *s, *t;</span><br><span class="line">    s == t ? t = (s = buf) + <span class="built_in">fread</span>(buf, <span class="number">1</span>, IN_LEN, stdin) : <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> s == t ? <span class="number">-1</span> : *s++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">char</span> c;</span><br><span class="line">    <span class="type">static</span> <span class="type">bool</span> iosig;</span><br><span class="line">    <span class="keyword">for</span> (c = <span class="built_in">read</span>(), iosig = <span class="literal">false</span>; !<span class="built_in">isdigit</span>(c); c = <span class="built_in">read</span>()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="number">-1</span>) <span class="keyword">return</span>;</span><br><span class="line">        c == <span class="string">&#x27;-&#x27;</span> ? iosig = <span class="literal">true</span> : <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (x = <span class="number">0</span>; <span class="built_in">isdigit</span>(c); c = <span class="built_in">read</span>()) x = (x + (x &lt;&lt; <span class="number">2</span>) &lt;&lt; <span class="number">1</span>) + (c ^ <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    iosig ? x = -x : <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">read</span><span class="params">(<span class="type">char</span> &amp;c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (c = <span class="built_in">read</span>(), <span class="built_in">isspace</span>(c))</span><br><span class="line">        ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">read</span><span class="params">(<span class="type">char</span> *buf)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="type">int</span> s = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">register</span> <span class="type">char</span> c;</span><br><span class="line">    <span class="keyword">while</span> (c = <span class="built_in">read</span>(), <span class="built_in">isspace</span>(c) &amp;&amp; c != <span class="number">-1</span>)</span><br><span class="line">        ;</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="number">-1</span>) &#123;</span><br><span class="line">        *buf = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">        buf[s++] = c;</span><br><span class="line">    <span class="keyword">while</span> (c = <span class="built_in">read</span>(), !<span class="built_in">isspace</span>(c) &amp;&amp; c != <span class="number">-1</span>);</span><br><span class="line">    buf[s] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> OUT_LEN = <span class="number">1000000</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> obuf[OUT_LEN], *oh = obuf;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">char</span> c)</span> </span>&#123;</span><br><span class="line">    oh == obuf + OUT_LEN ? (<span class="built_in">fwrite</span>(obuf, <span class="number">1</span>, OUT_LEN, stdout), oh = obuf) : <span class="number">0</span>;</span><br><span class="line">    *oh++ = c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">print</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> buf[<span class="number">30</span>], cnt;</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        x &lt; <span class="number">0</span> ? (<span class="built_in">print</span>(<span class="string">&#x27;-&#x27;</span>), x = -x) : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (cnt = <span class="number">0</span>; x; x /= <span class="number">10</span>) buf[++cnt] = x % <span class="number">10</span> | <span class="number">48</span>;</span><br><span class="line">        <span class="keyword">while</span> (cnt) <span class="built_in">print</span>((<span class="type">char</span>)buf[cnt--]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">flush</span><span class="params">()</span> </span>&#123; <span class="built_in">fwrite</span>(obuf, <span class="number">1</span>, oh - obuf, stdout); &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> IO;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> a[<span class="number">3000001</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> n,q,l,r,k,i,temp;</span><br><span class="line">	<span class="built_in">read</span>(n);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">		<span class="built_in">read</span>(temp);</span><br><span class="line">		a[i]=temp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">read</span>(q);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=q;++i)&#123;</span><br><span class="line">		<span class="built_in">read</span>(l);</span><br><span class="line">		<span class="built_in">read</span>(r);</span><br><span class="line">		<span class="built_in">read</span>(k);</span><br><span class="line">		<span class="keyword">for</span>(;l&lt;=r;++l)&#123;</span><br><span class="line">			a[l]+=k;	</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">		<span class="built_in">print</span>(a[i]);</span><br><span class="line">		<span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">flush</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="标准算法："><a href="#标准算法：" class="headerlink" title="标准算法："></a>标准算法：</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ctime&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> IO &#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">char</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> <span class="type">int</span> IN_LEN = <span class="number">1000000</span>;</span><br><span class="line">    <span class="type">static</span> <span class="type">char</span> buf[IN_LEN], *s, *t;</span><br><span class="line">    s == t ? t = (s = buf) + <span class="built_in">fread</span>(buf, <span class="number">1</span>, IN_LEN, stdin) : <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> s == t ? <span class="number">-1</span> : *s++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">char</span> c;</span><br><span class="line">    <span class="type">static</span> <span class="type">bool</span> iosig;</span><br><span class="line">    <span class="keyword">for</span> (c = <span class="built_in">read</span>(), iosig = <span class="literal">false</span>; !<span class="built_in">isdigit</span>(c); c = <span class="built_in">read</span>()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="number">-1</span>) <span class="keyword">return</span>;</span><br><span class="line">        c == <span class="string">&#x27;-&#x27;</span> ? iosig = <span class="literal">true</span> : <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (x = <span class="number">0</span>; <span class="built_in">isdigit</span>(c); c = <span class="built_in">read</span>()) x = (x + (x &lt;&lt; <span class="number">2</span>) &lt;&lt; <span class="number">1</span>) + (c ^ <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    iosig ? x = -x : <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">read</span><span class="params">(<span class="type">char</span> &amp;c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (c = <span class="built_in">read</span>(), <span class="built_in">isspace</span>(c))</span><br><span class="line">        ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">read</span><span class="params">(<span class="type">char</span> *buf)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="type">int</span> s = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">register</span> <span class="type">char</span> c;</span><br><span class="line">    <span class="keyword">while</span> (c = <span class="built_in">read</span>(), <span class="built_in">isspace</span>(c) &amp;&amp; c != <span class="number">-1</span>)</span><br><span class="line">        ;</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="number">-1</span>) &#123;</span><br><span class="line">        *buf = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">        buf[s++] = c;</span><br><span class="line">    <span class="keyword">while</span> (c = <span class="built_in">read</span>(), !<span class="built_in">isspace</span>(c) &amp;&amp; c != <span class="number">-1</span>);</span><br><span class="line">    buf[s] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> OUT_LEN = <span class="number">1000000</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> obuf[OUT_LEN], *oh = obuf;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">char</span> c)</span> </span>&#123;</span><br><span class="line">    oh == obuf + OUT_LEN ? (<span class="built_in">fwrite</span>(obuf, <span class="number">1</span>, OUT_LEN, stdout), oh = obuf) : <span class="number">0</span>;</span><br><span class="line">    *oh++ = c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">print</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> buf[<span class="number">30</span>], cnt;</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        x &lt; <span class="number">0</span> ? (<span class="built_in">print</span>(<span class="string">&#x27;-&#x27;</span>), x = -x) : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (cnt = <span class="number">0</span>; x; x /= <span class="number">10</span>) buf[++cnt] = x % <span class="number">10</span> | <span class="number">48</span>;</span><br><span class="line">        <span class="keyword">while</span> (cnt) <span class="built_in">print</span>((<span class="type">char</span>)buf[cnt--]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">flush</span><span class="params">()</span> </span>&#123; <span class="built_in">fwrite</span>(obuf, <span class="number">1</span>, oh - obuf, stdout); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> IO;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">3000000</span> + <span class="number">11</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, q, l, r;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> k;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> a[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">read</span>(n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="built_in">read</span>(a[i]);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = n; i &gt;= <span class="number">1</span>; --i) a[i] -= a[i - <span class="number">1</span>];</span><br><span class="line">	<span class="built_in">read</span>(q);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= q; ++i) &#123;</span><br><span class="line">		<span class="built_in">read</span>(l), <span class="built_in">read</span>(r), <span class="built_in">read</span>(k);</span><br><span class="line">		a[l] += k, a[r + <span class="number">1</span>] -= k;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) a[i] += a[i - <span class="number">1</span>], <span class="built_in">print</span>(a[i]), <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>);</span><br><span class="line">	<span class="built_in">flush</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="最后将check-mine-gen都编译为exe放入对拍所在的文件夹中，并运行对拍-bat"><a href="#最后将check-mine-gen都编译为exe放入对拍所在的文件夹中，并运行对拍-bat" class="headerlink" title="最后将check,mine,gen都编译为exe放入对拍所在的文件夹中，并运行对拍.bat"></a>最后将check,mine,gen都编译为exe放入对拍所在的文件夹中，并运行对拍.bat</h5><h5 id="注意：用标准输入输出！不要用文件输入输出-freopen等-！"><a href="#注意：用标准输入输出！不要用文件输入输出-freopen等-！" class="headerlink" title="注意：用标准输入输出！不要用文件输入输出(freopen等)！"></a><strong>注意：用标准输入输出！不要用文件输入输出(freopen等)！</strong></h5><h5 id="如图："><a href="#如图：" class="headerlink" title="如图："></a>如图：</h5><p><img src="https://cdn.jsdelivr.net/gh/mcmohen/ImageHosting/mcmohen_img%E5%AF%B9%E6%8B%8D.PNG"></p>
+<h5 id="out1，out2-，in-都是对拍程序自动生成的，out1是check程序的输出，out2是mine程序的输出，in是gen生成的随机样例，也是两个程序出现不同时的那个输入！-所以不同时可以复制in中的数据来调试程序"><a href="#out1，out2-，in-都是对拍程序自动生成的，out1是check程序的输出，out2是mine程序的输出，in是gen生成的随机样例，也是两个程序出现不同时的那个输入！-所以不同时可以复制in中的数据来调试程序" class="headerlink" title="out1，out2 ，in 都是对拍程序自动生成的，out1是check程序的输出，out2是mine程序的输出，in是gen生成的随机样例，也是两个程序出现不同时的那个输入！(所以不同时可以复制in中的数据来调试程序)"></a>out1，out2 ，in 都是对拍程序自动生成的，out1是check程序的输出，out2是mine程序的输出，in是gen生成的随机样例，也是两个程序出现不同时的那个输入！(所以不同时可以复制in中的数据来调试程序)</h5><h5 id="当你两个程序输出的结果都一样时，你的对拍程序应该是一直循环的！"><a href="#当你两个程序输出的结果都一样时，你的对拍程序应该是一直循环的！" class="headerlink" title="当你两个程序输出的结果都一样时，你的对拍程序应该是一直循环的！"></a>当你两个程序输出的结果都一样时，你的对拍程序应该是一直循环的！</h5><p><img src="https://cdn.jsdelivr.net/gh/mcmohen/ImageHosting/mcmohen_img%E5%AF%B9%E6%8B%8D2.PNG"></p>
+<h5 id="接着你就可以调大数据范围继续拍，直到达到题目给的数据范围！"><a href="#接着你就可以调大数据范围继续拍，直到达到题目给的数据范围！" class="headerlink" title="接着你就可以调大数据范围继续拍，直到达到题目给的数据范围！"></a>接着你就可以调大数据范围继续拍，直到达到题目给的数据范围！</h5><h4 id="以上就是对拍的全部内容！"><a href="#以上就是对拍的全部内容！" class="headerlink" title="以上就是对拍的全部内容！"></a>以上就是对拍的全部内容！</h4>
+    </div>
+
+    
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束，感谢您的阅读<i class="fa fa-paw"></i>-------------</div>
+    
+</div>
+
+      
+    </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>mcmohen
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://mcmohen.top/post/5a25a963.html" title="C++对拍">https://mcmohen.top/post/5a25a963.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"># C++</a>
+              <a href="/tags/%E6%95%99%E7%A8%8B/" rel="tag"># 教程</a>
+              <a href="/tags/%E9%99%88%E5%B9%B4%E6%97%A7%E7%89%A9/" rel="tag"># 陈年旧物</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/5339d0b.html" rel="prev" title="Markdown的使用-分割线">
+      <i class="fa fa-chevron-left"></i> Markdown的使用-分割线
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/fb9b7a82.html" rel="next" title="我的世界开服教程">
+      我的世界开服教程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%8B%8D"><span class="nav-number">1.</span> <span class="nav-text">对拍</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%AF%B9%E6%8B%8D"><span class="nav-number"></span> <span class="nav-text">关于对拍:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%8B%8D%E6%98%AF%E4%B8%80%E4%B8%AA%E6%A3%80%E9%AA%8C%E4%BD%A0%E7%9A%84%E6%9A%B4%E5%8A%9B%E7%A8%8B%E5%BA%8F%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE%E7%9A%84%E4%B8%9C%E8%A5%BF%EF%BC%8C%E5%9C%A8%E8%80%83%E5%9C%BA%E4%B8%8A%E5%8D%81%E5%88%86%E6%9C%89%E7%94%A8%EF%BC%81-%E8%80%8C%E4%B8%94%E5%BE%88%E5%A5%BD%E6%89%93"><span class="nav-number">1.</span> <span class="nav-text">对拍是一个检验你的暴力程序是否正确的东西，在考场上十分有用！(而且很好打)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%83%E5%8F%AF%E4%BB%A5%E8%AE%A9%E4%BD%A0%E8%AE%A4%E4%B8%BA%E7%9A%84%E6%A0%87%E5%87%86%E6%AD%A3%E7%A1%AE%E7%A8%8B%E5%BA%8F%E5%92%8C%E4%BD%A0%E7%9A%84%E6%9A%B4%E5%8A%9B%E7%A8%8B%E5%BA%8F%E4%B8%80%E8%B5%B7%E8%AF%BB%E5%85%A5%E4%B8%80%E4%BA%9B%E5%80%BC%E5%B9%B6%E8%BE%93%E5%87%BA%E8%BF%99%E4%BA%9B%E5%80%BC%EF%BC%8C%E5%86%8D%E6%AF%94%E8%BE%83%E5%BC%82%E5%90%8C"><span class="nav-number">2.</span> <span class="nav-text">它可以让你认为的标准正确程序和你的暴力程序一起读入一些值并输出这些值，再比较异同</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E6%8B%8D%E7%A8%8B%E5%BA%8F"><span class="nav-number"></span> <span class="nav-text">对拍程序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E4%B8%8A%E4%BB%A3%E7%A0%81"><span class="nav-number">0.1.</span> <span class="nav-text">直接上代码:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%AA%E9%9C%80%E6%8A%8A%E4%B8%8A%E8%BF%B0%E4%BB%A3%E7%A0%81%E5%A4%8D%E5%88%B6%E8%BF%9B%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3%E4%B8%AD-%E5%B0%86%E2%80%9D-%E2%80%9C%E7%9A%84%E6%B3%A8%E9%87%8A%E5%88%A0%E5%8E%BB-%EF%BC%8C%E5%86%8D%E5%B0%86%E5%90%8E%E7%BC%80%E6%94%B9%E4%B8%BA-bat%E5%8D%B3%E5%8F%AF%EF%BC%81"><span class="nav-number">0.2.</span> <span class="nav-text">只需把上述代码复制进新建文本文档中**(将”&#x2F;&#x2F;“的注释删去)**，再将后缀改为.bat即可！</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%AF%B9%E6%8B%8D"><span class="nav-number"></span> <span class="nav-text">使用对拍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E4%BD%A0%E5%BE%97%E5%85%88%E6%9C%89%E4%B8%80%E9%81%93%E9%A2%98"><span class="nav-number">0.1.</span> <span class="nav-text">首先你得先有一道题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AF%94%E5%A6%82%E8%BF%99%E9%81%93%EF%BC%9A"><span class="nav-number">0.2.</span> <span class="nav-text">比如这道：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%88%E5%81%9A%E4%B8%80%E4%B8%AA%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%9A%84%E7%A8%8B%E5%BA%8F-gen-cpp"><span class="nav-number">0.3.</span> <span class="nav-text">先做一个生成随机数的程序(gen.cpp)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%A9%E4%BD%A0%E7%9A%84%E7%A8%8B%E5%BA%8F%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%AC%A6%E5%90%88%E6%9D%A1%E4%BB%B6%E7%9A%84%E6%A0%B7%E4%BE%8B"><span class="nav-number">0.4.</span> <span class="nav-text">让你的程序自动生成符合条件的样例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="nav-number">0.5.</span> <span class="nav-text">如下：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%A5%E6%80%A5%E5%BF%99%E5%BF%99%E6%89%93%E7%9A%84%EF%BC%8C%E6%9C%89%E7%82%B9%E4%B9%B1%E3%80%82%E3%80%82%E3%80%82"><span class="nav-number">0.6.</span> <span class="nav-text">急急忙忙打的，有点乱。。。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%84%B6%E5%90%8E%E5%86%8D%E5%81%9A%E4%B8%80%E4%B8%AA%E6%9A%B4%E5%8A%9B-check-cpp-%E5%92%8C%E4%B8%80%E4%B8%AA%E4%BD%A0%E8%AE%A4%E4%B8%BA%E7%9A%84%E6%AD%A3%E7%A1%AE%E7%AE%97%E6%B3%95-mine-cpp"><span class="nav-number">0.7.</span> <span class="nav-text">然后再做一个暴力(check.cpp)和一个你认为的正确算法(mine.cpp)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A6%82%E4%B8%8B%EF%BC%9A-1"><span class="nav-number">0.8.</span> <span class="nav-text">如下：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9A%B4%E5%8A%9B%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">暴力算法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">标准算法：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E5%B0%86check-mine-gen%E9%83%BD%E7%BC%96%E8%AF%91%E4%B8%BAexe%E6%94%BE%E5%85%A5%E5%AF%B9%E6%8B%8D%E6%89%80%E5%9C%A8%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%AD%EF%BC%8C%E5%B9%B6%E8%BF%90%E8%A1%8C%E5%AF%B9%E6%8B%8D-bat"><span class="nav-number">2.1.</span> <span class="nav-text">最后将check,mine,gen都编译为exe放入对拍所在的文件夹中，并运行对拍.bat</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A%E7%94%A8%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%EF%BC%81%E4%B8%8D%E8%A6%81%E7%94%A8%E6%96%87%E4%BB%B6%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA-freopen%E7%AD%89-%EF%BC%81"><span class="nav-number">2.2.</span> <span class="nav-text">注意：用标准输入输出！不要用文件输入输出(freopen等)！</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A6%82%E5%9B%BE%EF%BC%9A"><span class="nav-number">2.3.</span> <span class="nav-text">如图：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#out1%EF%BC%8Cout2-%EF%BC%8Cin-%E9%83%BD%E6%98%AF%E5%AF%B9%E6%8B%8D%E7%A8%8B%E5%BA%8F%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%9A%84%EF%BC%8Cout1%E6%98%AFcheck%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%BE%93%E5%87%BA%EF%BC%8Cout2%E6%98%AFmine%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%BE%93%E5%87%BA%EF%BC%8Cin%E6%98%AFgen%E7%94%9F%E6%88%90%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%A0%B7%E4%BE%8B%EF%BC%8C%E4%B9%9F%E6%98%AF%E4%B8%A4%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%87%BA%E7%8E%B0%E4%B8%8D%E5%90%8C%E6%97%B6%E7%9A%84%E9%82%A3%E4%B8%AA%E8%BE%93%E5%85%A5%EF%BC%81-%E6%89%80%E4%BB%A5%E4%B8%8D%E5%90%8C%E6%97%B6%E5%8F%AF%E4%BB%A5%E5%A4%8D%E5%88%B6in%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E6%9D%A5%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F"><span class="nav-number">2.4.</span> <span class="nav-text">out1，out2 ，in 都是对拍程序自动生成的，out1是check程序的输出，out2是mine程序的输出，in是gen生成的随机样例，也是两个程序出现不同时的那个输入！(所以不同时可以复制in中的数据来调试程序)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BD%93%E4%BD%A0%E4%B8%A4%E4%B8%AA%E7%A8%8B%E5%BA%8F%E8%BE%93%E5%87%BA%E7%9A%84%E7%BB%93%E6%9E%9C%E9%83%BD%E4%B8%80%E6%A0%B7%E6%97%B6%EF%BC%8C%E4%BD%A0%E7%9A%84%E5%AF%B9%E6%8B%8D%E7%A8%8B%E5%BA%8F%E5%BA%94%E8%AF%A5%E6%98%AF%E4%B8%80%E7%9B%B4%E5%BE%AA%E7%8E%AF%E7%9A%84%EF%BC%81"><span class="nav-number">2.5.</span> <span class="nav-text">当你两个程序输出的结果都一样时，你的对拍程序应该是一直循环的！</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%A5%E7%9D%80%E4%BD%A0%E5%B0%B1%E5%8F%AF%E4%BB%A5%E8%B0%83%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%E7%BB%A7%E7%BB%AD%E6%8B%8D%EF%BC%8C%E7%9B%B4%E5%88%B0%E8%BE%BE%E5%88%B0%E9%A2%98%E7%9B%AE%E7%BB%99%E7%9A%84%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%EF%BC%81"><span class="nav-number">2.6.</span> <span class="nav-text">接着你就可以调大数据范围继续拍，直到达到题目给的数据范围！</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A5%E4%B8%8A%E5%B0%B1%E6%98%AF%E5%AF%B9%E6%8B%8D%E7%9A%84%E5%85%A8%E9%83%A8%E5%86%85%E5%AE%B9%EF%BC%81"><span class="nav-number">3.</span> <span class="nav-text">以上就是对拍的全部内容！</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="mcmohen"
+      src="/images/dbc_avatar.jpg">
+  <p class="site-author-name" itemprop="name">mcmohen</p>
+  <div class="site-description" itemprop="description">终究会释怀~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/re-mcmohen" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;re-mcmohen" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1245842402@qq.com" title="E-Mail → mailto:1245842402@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    <!--visitor map-->
+    <!--<script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=1dq6hy-N6X70McZ4GvwYk7xwCY4Rd7JMg3dCKj1J5Gw&cl=ffffff&w=a"></script>-->
+
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mcmohen</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">5k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">17 分钟</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+

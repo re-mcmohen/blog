@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/dbc_32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/dbc_16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Permanent Marker:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"mcmohen.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="基础篇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown的使用-基础">
+<meta property="og:url" content="https://mcmohen.top/post/ab5faf25.html">
+<meta property="og:site_name" content="Mohen&#39;s Blog">
+<meta property="og:description" content="基础篇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mcmohen.top/%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/mcmohen/ImageHosting/mcmohen_img/90133cbc21b46c765beb08a89ec4bc45194d5b.jpg">
+<meta property="og:image" content="https://mcmohen.top/%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/mcmohen/ImageHosting/mcmohen_img/90133cbc21b46c765beb08a89ec4bc45194d5b.jpg">
+<meta property="article:published_time" content="2019-08-17T08:33:34.000Z">
+<meta property="article:modified_time" content="2025-05-05T09:20:06.066Z">
+<meta property="article:author" content="mcmohen">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="Markdown">
+<meta property="article:tag" content="陈年旧物">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mcmohen.top/%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80">
+
+<link rel="canonical" href="https://mcmohen.top/post/ab5faf25.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Markdown的使用-基础 | Mohen's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Mohen's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">旧的不去新的不来</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">8</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">7</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mcmohen.top/post/ab5faf25.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/dbc_avatar.jpg">
+      <meta itemprop="name" content="mcmohen">
+      <meta itemprop="description" content="终究会释怀~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mohen's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Markdown的使用-基础
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-08-17 16:33:34" itemprop="dateCreated datePublished" datetime="2019-08-17T16:33:34+08:00">2019-08-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-05 17:20:06" itemprop="dateModified" datetime="2025-05-05T17:20:06+08:00">2025-05-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>847</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<h4 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h4></blockquote>
+<span id="more"></span>
+
+<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><h3 id="格式"><a href="#格式" class="headerlink" title="格式:"></a>格式:</h3><p>n个‘#’号+空格+标题名称 <strong>(此处标题字体黑度和我的博客设置有关,与Markdown无关)</strong></p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题名称</span><br><span class="line">## 二级标题名称</span><br><span class="line">### 三级标题名称</span><br><span class="line">#### 四级标题名称</span><br><span class="line">##### 五级标题名称</span><br><span class="line">###### 六级标题名称</span><br></pre></td></tr></table></figure>
+
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果:"></a>效果:</h3><h1 id="一级标题名称"><a href="#一级标题名称" class="headerlink" title="一级标题名称"></a>一级标题名称</h1><h2 id="二级标题名称"><a href="#二级标题名称" class="headerlink" title="二级标题名称"></a>二级标题名称</h2><h3 id="三级标题名称"><a href="#三级标题名称" class="headerlink" title="三级标题名称"></a>三级标题名称</h3><h4 id="四级标题名称"><a href="#四级标题名称" class="headerlink" title="四级标题名称"></a>四级标题名称</h4><h5 id="五级标题名称"><a href="#五级标题名称" class="headerlink" title="五级标题名称"></a>五级标题名称</h5><h6 id="六级标题名称"><a href="#六级标题名称" class="headerlink" title="六级标题名称"></a>六级标题名称</h6><h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>在正文中,Markdown提供了许多特殊效果,例如:</p>
+<p>可以使用</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">**文字**</span></span><br></pre></td></tr></table></figure>
+<p>来使文字变成粗体字;</p>
+<h3 id="格式-1"><a href="#格式-1" class="headerlink" title="格式:"></a>格式:</h3><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">**我很粗**</span></span><br><span class="line"><span class="strong">**abcdefghijklmnopqrstuvwxyz**</span></span><br><span class="line"><span class="strong">**0123456789**</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="效果-1"><a href="#效果-1" class="headerlink" title="效果:"></a>效果:</h3><p><strong>我很粗</strong><br><strong>abcdefghijklmnopqrstuvwxyz</strong><br><strong>0123456789</strong></p>
+<p>可以使用</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">*文字*</span></span><br></pre></td></tr></table></figure>
+<p>来使得文字变为斜体字;</p>
+<h3 id="格式-2"><a href="#格式-2" class="headerlink" title="格式:"></a>格式:</h3><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">*我是斜体*</span></span><br><span class="line"><span class="strong">*abcdefghijklmnopqrstuvwxyz*</span></span><br><span class="line"><span class="strong">*0123456789*</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="效果-2"><a href="#效果-2" class="headerlink" title="效果:"></a>效果:</h3><p><em>我是斜体</em><br><em>abcdefghijklmnopqrstuvwxyz</em><br><em>0123456789</em></p>
+<p>可以使用</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">**<span class="emphasis">*文字*</span>**</span></span><br></pre></td></tr></table></figure>
+<p>来使得文字变为加粗斜体字;</p>
+<h3 id="格式-3"><a href="#格式-3" class="headerlink" title="格式:"></a>格式:</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">**<span class="emphasis">*我是加粗斜体字*</span>**</span></span><br><span class="line"><span class="strong">**<span class="emphasis">*abcdefghijklmnopqrstuvwxyz*</span>**</span></span><br><span class="line"><span class="strong">**<span class="emphasis">*0123456789*</span>**</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="效果-3"><a href="#效果-3" class="headerlink" title="效果:"></a>效果:</h3><p><em><strong>我是加粗斜体字</strong></em><br><em><strong>abcdefghijklmnopqrstuvwxyz</strong></em><br><em><strong>0123456789</strong></em></p>
+<p>可以使用</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~文字~~</span><br></pre></td></tr></table></figure>
+<p>来使得文字带有删除线;</p>
+<h3 id="格式-4"><a href="#格式-4" class="headerlink" title="格式:"></a>格式:</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~~我是带有删除线的文字~~</span><br><span class="line">~~abcdefghijklmnopqrstuvwxyz~~</span><br><span class="line">~~0123456789~~</span><br></pre></td></tr></table></figure>
+
+<h3 id="效果-4"><a href="#效果-4" class="headerlink" title="效果:"></a>效果:</h3><p><del>我是带有删除线的文字</del><br><del>abcdefghijklmnopqrstuvwxyz</del><br><del>0123456789</del></p>
+<h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><h2 id="文中代码块"><a href="#文中代码块" class="headerlink" title="文中代码块"></a>文中代码块</h2><h3 id="格式-5"><a href="#格式-5" class="headerlink" title="格式:"></a>格式:</h3><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我是文字```我是代码```我是文字。</span><br><span class="line">我喜欢像```puts(<span class="string">&quot;I love luogu forever!&quot;</span>)<span class="comment">;```这样的代码。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="效果-5"><a href="#效果-5" class="headerlink" title="效果:"></a>效果:</h3><p>我是文字</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我是代码</span><br></pre></td></tr></table></figure>
+<p>我是文字。<br>我喜欢像</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">puts(<span class="string">&quot;I love luogu forever!&quot;</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>这样的代码。</p>
+<h2 id="代码段落"><a href="#代码段落" class="headerlink" title="代码段落"></a>代码段落</h2><h3 id="格式-注意-三个-号之间没有空格"><a href="#格式-注意-三个-号之间没有空格" class="headerlink" title="格式:  注意:三个&#96;号之间没有空格"></a>格式:  注意:三个&#96;号之间没有空格</h3><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">` ` `</span><br><span class="line">我是代码。</span><br><span class="line">` ` `</span><br><span class="line"></span><br><span class="line">` ` `cpp</span><br><span class="line"><span class="meta">#include&lt;stdio.h&gt;</span></span><br><span class="line">int main(void)&#123;</span><br><span class="line">    puts(<span class="string">&quot;I love luogu forever!&quot;</span>)<span class="comment">;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">` ` `</span><br></pre></td></tr></table></figure>
+
+<h3 id="效果-6"><a href="#效果-6" class="headerlink" title="效果:"></a>效果:</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我是代码</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;I love luogu forever!&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><h3 id="格式-6"><a href="#格式-6" class="headerlink" title="格式:"></a>格式:</h3><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>项1</span><br><span class="line"><span class="bullet">- </span>项2</span><br><span class="line"><span class="bullet">- </span>项3</span><br></pre></td></tr></table></figure>
+
+<h3 id="效果-7"><a href="#效果-7" class="headerlink" title="效果:"></a>效果:</h3><ul>
+<li>项1</li>
+<li>项2</li>
+<li>项3</li>
+</ul>
+<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><h3 id="格式-注意-后有空格"><a href="#格式-注意-后有空格" class="headerlink" title="格式: 注意.后有空格"></a>格式: 注意.后有空格</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">1</span>. 项<span class="number">1</span></span><br><span class="line"><span class="attribute">2</span>. 项<span class="number">2</span></span><br><span class="line"><span class="attribute">3</span>. 项<span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="效果-8"><a href="#效果-8" class="headerlink" title="效果:"></a>效果:</h3><ol>
+<li><p>项1</p>
+</li>
+<li><p>项2</p>
+</li>
+<li><p>项3</p>
+</li>
+</ol>
+<h2 id="列表的嵌套"><a href="#列表的嵌套" class="headerlink" title="列表的嵌套"></a>列表的嵌套</h2><h3 id="格式-7"><a href="#格式-7" class="headerlink" title="格式:"></a>格式:</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 项1</span><br><span class="line"><span class="bullet">    -</span> 项11</span><br><span class="line"><span class="bullet">    -</span> 项12</span><br><span class="line"><span class="bullet">2.</span> 项2</span><br><span class="line"><span class="bullet">    1.</span> 项21</span><br><span class="line"><span class="bullet">3.</span> 项3</span><br><span class="line"><span class="bullet">    -</span> 项31</span><br><span class="line"><span class="bullet">    -</span> 项32</span><br><span class="line"><span class="bullet">    -</span> 项33</span><br><span class="line"><span class="bullet">    -</span> 项34</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 项1</span><br><span class="line"><span class="bullet">    -</span> 项11</span><br><span class="line"><span class="bullet">    -</span> 项12</span><br><span class="line"><span class="bullet">-</span> 项2</span><br><span class="line"><span class="bullet">    -</span> 项21</span><br><span class="line"><span class="bullet">-</span> 项3</span><br><span class="line"><span class="bullet">    1.</span> 项31</span><br><span class="line"><span class="bullet">    2.</span> 项32</span><br><span class="line"><span class="bullet">    3.</span> 项33</span><br><span class="line"><span class="bullet">    4.</span> 项34</span><br></pre></td></tr></table></figure>
+
+<h3 id="效果-9"><a href="#效果-9" class="headerlink" title="效果:"></a>效果:</h3><ol>
+<li>项1<ul>
+<li>项11</li>
+<li>项12</li>
+</ul>
+</li>
+<li>项2<ol>
+<li>项21</li>
+</ol>
+</li>
+<li>项3<ul>
+<li>项31</li>
+<li>项32</li>
+<li>项33</li>
+<li>项34</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>项1<ul>
+<li>项11</li>
+<li>项12</li>
+</ul>
+</li>
+<li>项2<ul>
+<li>项21</li>
+</ul>
+</li>
+<li>项3<ol>
+<li>项31</li>
+<li>项32</li>
+<li>项33</li>
+<li>项34</li>
+</ol>
+</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>有序排列自动按照<strong>升序排列</strong>，且<strong>序号仅仅与序列的第一项的序号有关</strong></p>
+<h3 id="源代码"><a href="#源代码" class="headerlink" title="源代码:"></a>源代码:</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">2.</span> 项</span><br><span class="line"><span class="bullet">1.</span> 项</span><br><span class="line"><span class="bullet">3.</span> 项</span><br></pre></td></tr></table></figure>
+
+<h3 id="效果-10"><a href="#效果-10" class="headerlink" title="效果:"></a>效果:</h3><ol start="2">
+<li>项</li>
+<li>项</li>
+<li>项</li>
+</ol>
+<h1 id="超链接与图片"><a href="#超链接与图片" class="headerlink" title="超链接与图片"></a>超链接与图片</h1><h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><h3 id="格式-8"><a href="#格式-8" class="headerlink" title="格式:"></a>格式:</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[链接描述]</span>(链接地址)</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[墨痕博客]</span>(<span class="attribute">https</span>:<span class="comment">//mcmohen.top/)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="效果-11"><a href="#效果-11" class="headerlink" title="效果:"></a>效果:</h3><p><a href="%E9%93%BE%E6%8E%A5%E5%9C%B0%E5%9D%80">链接描述</a></p>
+<p><a href="https://mcmohen.top/">墨痕博客</a></p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><h3 id="格式-9"><a href="#格式-9" class="headerlink" title="格式:"></a>格式:</h3><figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![图片描述（选填）](图片地址)</span><br><span class="line">注意!是半角字符，ASCII(!)=<span class="number">33</span></span><br><span class="line">![作者头像](https://cdn.jsdelivr.net/gh/mcmohen/ImageHosting/mcmohen_img/<span class="number">90133</span>cbc21b46c765beb08a89ec4bc45194d5b.jpg)</span><br></pre></td></tr></table></figure>
+
+<h3 id="效果-12"><a href="#效果-12" class="headerlink" title="效果:"></a>效果:</h3><p><img src="/%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80" alt="图片描述（选填）"><br>注意!是半角字符，ASCII(!)&#x3D;33<br><img src="https://cdn.jsdelivr.net/gh/mcmohen/ImageHosting/mcmohen_img/90133cbc21b46c765beb08a89ec4bc45194d5b.jpg" alt="作者头像"></p>
+<h2 id="图片-链接"><a href="#图片-链接" class="headerlink" title="图片&amp;链接"></a>图片&amp;链接</h2><h3 id="格式-10"><a href="#格式-10" class="headerlink" title="格式:"></a>格式:</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[![图片描述（选填）]</span>(图片地址)](链接地址)</span><br><span class="line"><span class="selector-attr">[![作者头像]</span>(https://cdn.jsdelivr.net/gh/mcmohen/ImageHosting/mcmohen_img/<span class="number">90133</span>cbc21b46c765beb08a89ec4bc45194d5b.jpg)](https://mcmohen.top/)</span><br><span class="line">点击以进入墨痕的博客</span><br></pre></td></tr></table></figure>
+
+<h3 id="效果-13"><a href="#效果-13" class="headerlink" title="效果:"></a>效果:</h3><p><a href="%E9%93%BE%E6%8E%A5%E5%9C%B0%E5%9D%80"><img src="/%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80" alt="图片描述（选填）"></a><br><a href="https://mcmohen.top/"><img src="https://cdn.jsdelivr.net/gh/mcmohen/ImageHosting/mcmohen_img/90133cbc21b46c765beb08a89ec4bc45194d5b.jpg" alt="作者头像"></a><br>点击以进入墨痕的博客</p>
+<h2 id="注意事项-特别重要"><a href="#注意事项-特别重要" class="headerlink" title="注意事项(特别重要)"></a>注意事项(特别重要)</h2><p>在Markdown将图片转化为<code>HTML</code>元素时，对于</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!<span class="selector-attr">[图片描述]</span>(图片地址)</span><br></pre></td></tr></table></figure>
+
+<p>会转化为:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;图片地址&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片描述&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这将会导致用户在不知情的情况下打开图片对应的链接</p>
+<h2 id="特此声明"><a href="#特此声明" class="headerlink" title="特此声明:"></a>特此声明:</h2><h4 id="任何利用此漏洞制造恶意程序（如自动关注机space-show-uid-xxx-follow-1）（-自动注销机login-logout-uid-xxx）或实施恶意行为造成的后果与本文作者无关"><a href="#任何利用此漏洞制造恶意程序（如自动关注机space-show-uid-xxx-follow-1）（-自动注销机login-logout-uid-xxx）或实施恶意行为造成的后果与本文作者无关" class="headerlink" title="任何利用此漏洞制造恶意程序（如自动关注机space&#x2F;show?uid&#x3D;xxx&amp;follow&#x3D;1）（ 自动注销机login&#x2F;logout?uid&#x3D;xxx）或实施恶意行为造成的后果与本文作者无关"></a>任何利用此漏洞制造恶意程序（如自动关注机space&#x2F;show?uid&#x3D;xxx&amp;follow&#x3D;1）（ 自动注销机login&#x2F;logout?uid&#x3D;xxx）或实施恶意行为造成的后果与本文作者无关</h4><h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+    </div>
+
+    
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束，感谢您的阅读<i class="fa fa-paw"></i>-------------</div>
+    
+</div>
+
+      
+    </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>mcmohen
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://mcmohen.top/post/ab5faf25.html" title="Markdown的使用-基础">https://mcmohen.top/post/ab5faf25.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%99%E7%A8%8B/" rel="tag"># 教程</a>
+              <a href="/tags/Markdown/" rel="tag"># Markdown</a>
+              <a href="/tags/%E9%99%88%E5%B9%B4%E6%97%A7%E7%89%A9/" rel="tag"># 陈年旧物</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/post/42eb2fd5.html" rel="next" title="Markdown的使用-引用">
+      Markdown的使用-引用 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%AF%87"><span class="nav-number">1.</span> <span class="nav-text">基础篇</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98"><span class="nav-number"></span> <span class="nav-text">标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F"><span class="nav-number"></span> <span class="nav-text">格式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C"><span class="nav-number"></span> <span class="nav-text">效果:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98%E5%90%8D%E7%A7%B0"><span class="nav-number"></span> <span class="nav-text">一级标题名称</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98%E5%90%8D%E7%A7%B0"><span class="nav-number"></span> <span class="nav-text">二级标题名称</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98%E5%90%8D%E7%A7%B0"><span class="nav-number"></span> <span class="nav-text">三级标题名称</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%E7%BA%A7%E6%A0%87%E9%A2%98%E5%90%8D%E7%A7%B0"><span class="nav-number">1.</span> <span class="nav-text">四级标题名称</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%94%E7%BA%A7%E6%A0%87%E9%A2%98%E5%90%8D%E7%A7%B0"><span class="nav-number">1.1.</span> <span class="nav-text">五级标题名称</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%85%AD%E7%BA%A7%E6%A0%87%E9%A2%98%E5%90%8D%E7%A7%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">六级标题名称</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-number"></span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F-1"><span class="nav-number"></span> <span class="nav-text">格式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-1"><span class="nav-number"></span> <span class="nav-text">效果:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F-2"><span class="nav-number"></span> <span class="nav-text">格式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-2"><span class="nav-number"></span> <span class="nav-text">效果:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F-3"><span class="nav-number"></span> <span class="nav-text">格式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-3"><span class="nav-number"></span> <span class="nav-text">效果:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F-4"><span class="nav-number"></span> <span class="nav-text">格式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-4"><span class="nav-number"></span> <span class="nav-text">效果:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-number"></span> <span class="nav-text">代码块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%B8%AD%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-number"></span> <span class="nav-text">文中代码块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F-5"><span class="nav-number"></span> <span class="nav-text">格式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-5"><span class="nav-number"></span> <span class="nav-text">效果:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%AE%B5%E8%90%BD"><span class="nav-number"></span> <span class="nav-text">代码段落</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F-%E6%B3%A8%E6%84%8F-%E4%B8%89%E4%B8%AA-%E5%8F%B7%E4%B9%8B%E9%97%B4%E6%B2%A1%E6%9C%89%E7%A9%BA%E6%A0%BC"><span class="nav-number"></span> <span class="nav-text">格式:  注意:三个&#96;号之间没有空格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-6"><span class="nav-number"></span> <span class="nav-text">效果:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-number"></span> <span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-number"></span> <span class="nav-text">无序列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F-6"><span class="nav-number"></span> <span class="nav-text">格式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-7"><span class="nav-number"></span> <span class="nav-text">效果:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-number"></span> <span class="nav-text">有序列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F-%E6%B3%A8%E6%84%8F-%E5%90%8E%E6%9C%89%E7%A9%BA%E6%A0%BC"><span class="nav-number"></span> <span class="nav-text">格式: 注意.后有空格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-8"><span class="nav-number"></span> <span class="nav-text">效果:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E7%9A%84%E5%B5%8C%E5%A5%97"><span class="nav-number"></span> <span class="nav-text">列表的嵌套</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F-7"><span class="nav-number"></span> <span class="nav-text">格式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-9"><span class="nav-number"></span> <span class="nav-text">效果:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number"></span> <span class="nav-text">注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="nav-number"></span> <span class="nav-text">源代码:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-10"><span class="nav-number"></span> <span class="nav-text">效果:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5%E4%B8%8E%E5%9B%BE%E7%89%87"><span class="nav-number"></span> <span class="nav-text">超链接与图片</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number"></span> <span class="nav-text">超链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F-8"><span class="nav-number"></span> <span class="nav-text">格式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-11"><span class="nav-number"></span> <span class="nav-text">效果:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87"><span class="nav-number"></span> <span class="nav-text">图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F-9"><span class="nav-number"></span> <span class="nav-text">格式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-12"><span class="nav-number"></span> <span class="nav-text">效果:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87-%E9%93%BE%E6%8E%A5"><span class="nav-number"></span> <span class="nav-text">图片&amp;链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F-10"><span class="nav-number"></span> <span class="nav-text">格式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-13"><span class="nav-number"></span> <span class="nav-text">效果:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-%E7%89%B9%E5%88%AB%E9%87%8D%E8%A6%81"><span class="nav-number"></span> <span class="nav-text">注意事项(特别重要)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AD%A4%E5%A3%B0%E6%98%8E"><span class="nav-number"></span> <span class="nav-text">特此声明:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%BB%E4%BD%95%E5%88%A9%E7%94%A8%E6%AD%A4%E6%BC%8F%E6%B4%9E%E5%88%B6%E9%80%A0%E6%81%B6%E6%84%8F%E7%A8%8B%E5%BA%8F%EF%BC%88%E5%A6%82%E8%87%AA%E5%8A%A8%E5%85%B3%E6%B3%A8%E6%9C%BAspace-show-uid-xxx-follow-1%EF%BC%89%EF%BC%88-%E8%87%AA%E5%8A%A8%E6%B3%A8%E9%94%80%E6%9C%BAlogin-logout-uid-xxx%EF%BC%89%E6%88%96%E5%AE%9E%E6%96%BD%E6%81%B6%E6%84%8F%E8%A1%8C%E4%B8%BA%E9%80%A0%E6%88%90%E7%9A%84%E5%90%8E%E6%9E%9C%E4%B8%8E%E6%9C%AC%E6%96%87%E4%BD%9C%E8%80%85%E6%97%A0%E5%85%B3"><span class="nav-number">1.</span> <span class="nav-text">任何利用此漏洞制造恶意程序（如自动关注机space&#x2F;show?uid&#x3D;xxx&amp;follow&#x3D;1）（ 自动注销机login&#x2F;logout?uid&#x3D;xxx）或实施恶意行为造成的后果与本文作者无关</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number"></span> <span class="nav-text"></span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="mcmohen"
+      src="/images/dbc_avatar.jpg">
+  <p class="site-author-name" itemprop="name">mcmohen</p>
+  <div class="site-description" itemprop="description">终究会释怀~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/re-mcmohen" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;re-mcmohen" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1245842402@qq.com" title="E-Mail → mailto:1245842402@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    <!--visitor map-->
+    <!--<script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=1dq6hy-N6X70McZ4GvwYk7xwCY4Rd7JMg3dCKj1J5Gw&cl=ffffff&w=a"></script>-->
+
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mcmohen</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">5k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">17 分钟</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
