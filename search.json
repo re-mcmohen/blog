@@ -1,0 +1,1 @@
+[{"title":"如何用C++完成Helloworld的编写","url":"/post/9914b582.html","content":"\n> #####  Helloworld.cpp\n\n<!--more-->\n\n代码示例：\n\n\n\n```c++\n#include <bits/stdc++.h>\n\nusing namespace std;\n\nint main(){\n\n\tcout<<\"hello world!\"<<endl;\n\n\treturn 0;\n\n}\n```\n\n\n\n这样就写好了，是不是很简单呢~\n\n","tags":["C++","coding"]}]
